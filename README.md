@@ -1,2 +1,3 @@
 # ThumbnailMemoryReductionSample
-blog sample codes
+
+

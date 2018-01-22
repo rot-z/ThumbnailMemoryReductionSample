@@ -1,0 +1,34 @@
+﻿<Window x:Class="ThumbnailMemoryReductionSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThumbnailMemoryReductionSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Scale type" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="TransformedBitmap" x:Name="radTransFormedBitmap" Margin="10,3,3,3" IsChecked="True" />
+                <RadioButton Content="WrapWithWritableBitmap" x:Name="radWrapWithWritableBitmap" Margin="10,3,3,3" />
+                <Button Content="Add contents" Margin="10,3,3,3" Click="Button_Click" />
+            </StackPanel>
+        </GroupBox>
+
+        <ListBox x:Name="lstThumbnails" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding Thumbnail}" Width="50" Height="50" />
+                        <TextBlock Text="{Binding FileName}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
